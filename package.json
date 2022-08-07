@@ -1,0 +1,17 @@
+{
+  "name": "revue-monitor",
+  "version": "1.0.3",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "stacktracey": "^2.1.8",
+    "axios": "^0.27.2",
+    "user-agent": "^1.0.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
