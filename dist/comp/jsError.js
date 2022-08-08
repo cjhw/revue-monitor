@@ -18,11 +18,11 @@ const jsError = {
         detail: `${error.toString()}`,
         isYibu: false,  //是否是异步
       }
-      //console.error(error)
+      console.error(error)
       axios.post('/plugin/postErrorMessage', log)
     }
     window.addEventListener("error", function (event) {
-      // //console.log(event)
+      // console.log(event)
       let log = {
         kind: "stability", //稳定性指标
         errorType: "jsError", //jsError
