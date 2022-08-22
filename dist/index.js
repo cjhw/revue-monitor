@@ -2,13 +2,14 @@
  * @Descripttion: 
  * @Author: Wang Dejiang(aei)
  * @Date: 2022-08-07 16:21:52
- * @LastEditors: Wang Dejiang(aei)
- * @LastEditTime: 2022-08-07 21:40:44
+ * @LastEditors: arvin(王德江)
+ * @LastEditTime: 2022-08-22 22:52:01
  */
 import { timing, ComponentMount, ComponentBlank } from './comp/index' 
 import jsError  from './comp/jsError'
 import wsError from './comp/wsError'
 import httpError, { injectFetch, injectXHR } from './comp/httpError'
+import bussiness from './comp/bussiness'
 
 export default {
     install(Vue, options) {
@@ -18,8 +19,9 @@ export default {
           blankScreen: ComponentBlank.b,
           wsError: wsError,
           injectFetch, 
-          injectXHR
+          injectXHR,
         }
+        bussiness.install(Vue, options)
     },
     immediate: {
         install(Vue, options) {
@@ -38,6 +40,7 @@ export default {
             injectFetch, 
             injectXHR
           }
+          bussiness.immediate(Vue, options)
         },
     },
 }
