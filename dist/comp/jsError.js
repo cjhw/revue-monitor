@@ -2,7 +2,7 @@
  * @Author: arvin(王德江)
  * @Date: 2022-08-10 15:44:44
  * @LastEditors: arvin(王德江)
- * @LastEditTime: 2022-08-25 20:59:47
+ * @LastEditTime: 2022-08-25 22:05:13
  * @Description: 
  */
 import StackTracey from 'stacktracey'
@@ -28,7 +28,7 @@ const jsError = {
       }
       console.error(error)
       axios.post('/plugin/postErrorMessage', log).then(res => {
-        topic.emit('jsError', res.data.id)
+        topic.emit('onJsError', res.data.id)
       })
     }
     window.addEventListener("error", function (event) {
