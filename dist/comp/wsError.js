@@ -1,3 +1,10 @@
+/*
+ * @Author: arvin(王德江)
+ * @Date: 2022-08-10 15:44:44
+ * @LastEditors: arvin(王德江)
+ * @LastEditTime: 2022-08-25 21:20:45
+ * @Description: 
+ */
 let userAgent = require("user-agent");
 const xhr___ = new XMLHttpRequest()
 const monitor = () => {
@@ -37,5 +44,22 @@ const monitor = () => {
   }
 }
 
+export const reWsError = {
+  install() {
+    const oldRevue = Vue.prototype.$revue
+    Vue.prototype.$revue = Object.assign({}, oldRevue, {
+      monitor
+    })
+  },
+  immediate: {
+    install() {
+      const oldRevue = Vue.prototype.$revue
+      Vue.prototype.$revue = Object.assign({}, oldRevue, {
+        monitor
+      })
+      monitor()
+    }
+  },
+}
 
 export default monitor

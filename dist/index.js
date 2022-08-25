@@ -3,7 +3,7 @@
  * @Author: Wang Dejiang(aei)
  * @Date: 2022-08-07 16:21:52
  * @LastEditors: arvin(王德江)
- * @LastEditTime: 2022-08-25 21:06:12
+ * @LastEditTime: 2022-08-25 21:28:22
  */
 import { timing, ComponentMount, ComponentBlank } from './comp/index' 
 import jsError  from './comp/jsError'
@@ -28,7 +28,7 @@ export default {
           wsError: wsError,
           injectFetch, 
           injectXHR,
-          bussiness
+          // bussiness
         }
         
     },
@@ -42,7 +42,7 @@ export default {
           wsError()
           injectFetch()
           injectXHR()
-          bussiness.bs()
+          // bussiness.bs()
           Vue.prototype.$revue = {
             timing: timing.t,
             compnentMount: ComponentMount.m,

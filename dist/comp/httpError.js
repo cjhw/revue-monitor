@@ -107,6 +107,29 @@ export function injectXHR() {
     };
 }
 
+export const reWsError = {
+  install() {
+    const oldRevue = Vue.prototype.$revue
+    Vue.prototype.$revue = Object.assign({}, oldRevue, {
+      injectFetchm,
+      injectXHR,
+      injectFetch
+    })
+  },
+  immediate: {
+    install() {
+      const oldRevue = Vue.prototype.$revue
+      Vue.prototype.$revue = Object.assign({}, oldRevue, {
+        injectFetchm,
+        injectXHR,
+        injectFetch
+      })
+      injectFetch()
+      injectXHR()
+    }
+  },
+}
+
 export default function httpError() {
   injectFetch()
   injectXHR()
