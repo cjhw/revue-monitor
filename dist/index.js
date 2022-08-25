@@ -3,7 +3,7 @@
  * @Author: Wang Dejiang(aei)
  * @Date: 2022-08-07 16:21:52
  * @LastEditors: arvin(王德江)
- * @LastEditTime: 2022-08-25 20:41:39
+ * @LastEditTime: 2022-08-25 21:06:12
  */
 import { timing, ComponentMount, ComponentBlank } from './comp/index' 
 import jsError  from './comp/jsError'
@@ -28,8 +28,9 @@ export default {
           wsError: wsError,
           injectFetch, 
           injectXHR,
+          bussiness
         }
-        bussiness.install(Vue, options)
+        
     },
     immediate: {
         install(Vue, options) {
@@ -41,15 +42,16 @@ export default {
           wsError()
           injectFetch()
           injectXHR()
+          bussiness.bs()
           Vue.prototype.$revue = {
             timing: timing.t,
             compnentMount: ComponentMount.m,
             blankScreen: ComponentBlank.b,
             wsError: wsError,
             injectFetch, 
-            injectXHR
+            injectXHR,
+            bussiness
           }
-          bussiness.immediate(Vue, options)
         },
     },
     lifeTime
