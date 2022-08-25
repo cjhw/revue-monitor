@@ -1,5 +1,13 @@
+/*
+ * @Author: arvin(王德江)
+ * @Date: 2022-08-10 15:44:44
+ * @LastEditors: arvin(王德江)
+ * @LastEditTime: 2022-08-25 20:38:41
+ * @Description: 
+ */
 import StackTracey from 'stacktracey'
 import axios from "../utils/request"
+import topic from './topic'
 
 const jsError = {
   install: (Vue) => {
@@ -19,7 +27,9 @@ const jsError = {
         isYibu: false,  //是否是异步
       }
       console.error(error)
-      axios.post('/plugin/postErrorMessage', log)
+      axios.post('/plugin/postErrorMessage', log).then(res => {
+        topic.onJsError(res.data.id)
+      })
     }
     window.addEventListener("error", function (event) {
       // console.log(event)
